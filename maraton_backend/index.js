@@ -55,19 +55,19 @@ app.use(morgan("combined"));
 
 ///////////////////// Init Array de Compras. (Simulo una Base de datos)
 let compras = [{
-  "id": "adkjfh",
+  "id": "42ibc8kfn8rzpi",
   "clientId": "1000",
   "products": ["100", "300", "400", "500", "600", "700", "800"],
   "amount": 10000,
   "paymentMethod": "Credit Card",
   "createdAt": "2020-09-25T22:55:32.724Z"
 },
-{"id": "adkjfh",
-"clientId": "1000",
-"products": ["100", "300", "400", "500", "600", "700", "800"],
-"amount": 10000,
-"paymentMethod": "Credit Card",
-"createdAt": "2020-09-25T22:55:32.724Z"
+{"id": "42ibc8kfn8ed01",
+"clientId": "1001",
+"products": ["101", "200", "700", "800"],
+"amount": 5000,
+"paymentMethod": "Bitcoin",
+"createdAt": "2020-09-29T00:40:21.275Z"
 },
 
 

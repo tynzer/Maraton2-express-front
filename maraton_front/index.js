@@ -27,7 +27,6 @@ function getComprasList() {
                     </a>
                 </td>
             </tr>`
-
       })
       tbodyMovies.innerHTML = frag
     })
@@ -44,7 +43,6 @@ formAdd.addEventListener("submit", submitHandler)
 
 function submitHandler(e) {
   e.preventDefault()
-
 
   let addClient = document.querySelector("#add-client").value
   let addProducts = document.querySelector("#add-products").value
@@ -82,7 +80,7 @@ const editPayment = document.querySelector("#edit-payment")
 
 
 function getComprasEdit(id) {
-  // console.log(id)
+  // Toma los datos a editar
 
   fetch(`http://localhost:3000/compras/${id}`)
     .then(function (res) {
@@ -95,6 +93,7 @@ function getComprasEdit(id) {
       editPayment.value = res.compra.paymentMethod;
     });
 
+  // Toma los datos editados y los actualiza
   const formEdit = document.querySelector("#formEdit")
   formEdit.addEventListener("submit", addSubmitHandler)
 
@@ -111,7 +110,7 @@ function getComprasEdit(id) {
    
     fetch(`http://localhost:3000/compras/${id}`, {
       method: 'PUT',
-      body: JSON.stringify(dataUpdate), // data can be `string` or {object}!
+      body: JSON.stringify(dataUpdate), 
       headers: {
         'Content-Type': 'application/json'
       }
@@ -127,7 +126,7 @@ function deleteCompra(id) {
     {
       method: "DELETE"
     })
-    .then(res => res.json()) // or res.json()
+    .then(res => res.json()) 
     .then(res => console.log(res))
     .then(response => getComprasList())
     .catch(error => console.error('Error:', error))
