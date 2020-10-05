@@ -224,3 +224,26 @@ function getCompraID(array, id) {
 app.listen(PORT, function () {
   console.log(`Maraton Guayerd running on PORT: ${PORT}\nhttp://localhost:${PORT}/\n`);
 });
+
+///////Ejercicio 6 usando filter
+/* 
+app.get("/compras", function (req, res) {
+  res.status(200).send({ compras });
+});
+
+app.get("/compras/:id", function (req, res) {
+ // let CompraID;
+  let id = req.params.id;
+ const CompraID = compras.find(function (compra) {
+return compra.id == id});
+ 
+  if (CompraID) {
+    res.status(200).send({ "compra": CompraID });
+  }
+  else {
+    res.status(400).send({ "mensaje": "compra no encontrada" });
+  }
+
+});
+
+ */
