@@ -43,8 +43,6 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const uniqid = require("uniqid");
-const { raw } = require("express");
-
 const app = express();
 const PORT = 3000;
 
@@ -118,7 +116,7 @@ app.post("/compras/", function (req, res) {
 
     compras.push(compraAdd)
     res.status(201).send({ "compraAgregada": compraAdd })
-    console.log(compras)
+   
 
   }
 

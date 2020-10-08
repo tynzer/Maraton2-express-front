@@ -33,7 +33,7 @@
 							<h2>ABM <b>Compras</b></h2>
 						</div>
 						<div class="col-sm-6">
-							<a href="#addMovieModal" class="btn btn-success" data-toggle="modal"><i
+							<a href="#addComprasModal" class="btn btn-success" data-toggle="modal"><i
 									class="material-icons">&#xE147;</i> <span>Agregar Compra</span></a>
 						</div>
 					</div>
@@ -51,7 +51,7 @@
 							<th>Created At</th>
 						</tr>
 					</thead>
-					<tbody id="tbodyMovies">
+					<tbody id="tbodyCompras">
 
 					</tbody>
 				</table>
@@ -59,7 +59,7 @@
 		</div>
 	</div>
 	<!-- Agregar Modal HTML -->
-	<div id="addMovieModal" class="modal fade">
+	<div id="addComprasModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form id="formAdd">
@@ -78,7 +78,7 @@
 						</div>
 						<div class="form-group">
 							<label>Amount
-							<input id="add-amount" type="text" class="form-control" required></label>
+							<input id="add-amount" type="number" class="form-control" required></label>
 						</div>
 					<!-- 	<div class="form-group">
 							<label>Eligir metodo de pago:
@@ -107,7 +107,7 @@
 		</div>
 	</div>
 	<!-- Edit Modal HTML -->
-	<div id="editMovieModal" class="modal fade">
+	<div id="editCompraModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form id="formEdit">
@@ -129,7 +129,7 @@
 						</div>
 						<div class="form-group">
 							<label>Amount</label>
-							<input id="edit-amount" type="text" class="form-control" value="" required>
+							<input id="edit-amount" type="number" class="form-control" value="" required>
 						</div>
 						<!-- <div class="form-group">
 							<label>Payment Method</label>
@@ -156,7 +156,7 @@
 		</div>
 	</div>
 	<!-- Delete Modal HTML -->
-	<div id="#deleteMovieModal" class="modal fade">
+	<div id="deleteCompraModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form id="formDelete">

@@ -3,32 +3,32 @@
 //empieza programa
 
 function getComprasList() {
-  const tbodyCompras = document.querySelector("#tdbodyMovies");
+  const tbodyCompras = document.querySelector("#tbodyCompras");
   fetch("http://localhost:3000/compras")
     .then(response => response.json())
     .then(result => {
       let frag = "";
-      console.log(result)
+
       result.compras.forEach(function (compra) {
-        console.log(compra)
+
         frag += `<tr>
-                <td>${compra.id}</td>
-                <td>${compra.clientId}</td>
-                <td>${compra.products}</td>
-                <td>${compra.amount}</td>
-                <td>${compra.paymentMethod}</td>
-                <td>${compra.createdAt}</td>
-                <td><a href="#editMovieModal" class="edit" data-toggle="modal">
+                  <td>${compra.id}</td>
+                  <td>${compra.clientId}</td>
+                  <td>${compra.products}</td>
+                  <td>${compra.amount}</td>
+                  <td>${compra.paymentMethod}</td>
+                  <td>${compra.createdAt}</td>
+                  <td><a href="#editCompraModal" class="edit" data-toggle="modal">
                         <i class="material-icons" data-toggle="tooltip"  
                         onclick="getComprasEdit('${compra.id}')" title="Edit">&#xE254;</i>
-                    </a>
-                    <a href="#deleteMovieModal" class="delete" data-toggle="modal">
+                      </a>
+                      <a href="#deleteCompraModal" class="delete" data-toggle="modal">
                         <i class="material-icons" data-toggle="tooltip" id="del-1" onclick="deleteCompra('${compra.id}')"  title="Delete">&#xE872;</i>
-                    </a>
-                </td>
-            </tr>`
+                      </a>
+                  </td>
+                </tr>`
       })
-      tbodyMovies.innerHTML = frag
+      tbodyCompras.innerHTML = frag
     })
     .catch(error => console.log('error', error));
 }
@@ -65,7 +65,7 @@ function submitHandler(e) {
     }
   }).then(res => res.json())
     .then(response => console.log('Success:', response))
-    .then(response => getComprasList())
+    .then(getComprasList())
     .catch(error => console.error('Error:', error))
 }
 
@@ -78,9 +78,10 @@ const editPayment = document.querySelector("#edit-payment")
 
 
 
-
 function getComprasEdit(id) {
   // Toma los datos a editar
+
+
 
   fetch(`http://localhost:3000/compras/${id}`)
     .then(function (res) {
@@ -95,10 +96,10 @@ function getComprasEdit(id) {
 
   // Toma los datos editados y los actualiza
   const formEdit = document.querySelector("#formEdit")
-  formEdit.addEventListener("submit", addSubmitHandler)
+  formEdit.addEventListener("submit", editSubmitHandler)
 
 
-  function addSubmitHandler(e) {
+  function editSubmitHandler(e) {
     e.preventDefault()
     let dataUpdate = {
       "clientId": editClient.value,
@@ -107,27 +108,34 @@ function getComprasEdit(id) {
       "paymentMethod": editPayment.value,
       "createdAt": new Date()
     };
-   
+
     fetch(`http://localhost:3000/compras/${id}`, {
       method: 'PUT',
-      body: JSON.stringify(dataUpdate), 
+      body: JSON.stringify(dataUpdate),
       headers: {
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
       .then(response => console.log('Success:', response))
-      .then(response => getComprasList())
+      .then(getComprasList())
       .catch(error => console.error('Error:', error))
-  } 
+  }
 }
 
 function deleteCompra(id) {
-  fetch(`http://localhost:3000/compras/${id}`,
-    {
-      method: "DELETE"
-    })
-    .then(res => res.json()) 
-    .then(res => console.log(res))
-    .then(response => getComprasList())
-    .catch(error => console.error('Error:', error))
-} 
+  //Variable del formulario eliminar
+  const formDelete = document.querySelector("#formDelete")
+  formDelete.addEventListener("submit", delelteSubmiteHandler)
+
+  function delelteSubmiteHandler() {
+    //e.preventDefault()
+    fetch(`http://localhost:3000/compras/${id}`,
+      {
+        method: "DELETE"
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .then(getComprasList()) //no me gusta como quedo
+      .catch(error => console.error('Error:', error))
+  }
+}
