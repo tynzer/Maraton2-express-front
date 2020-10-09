@@ -78,17 +78,17 @@ app.get("/compras", function (req, res) {
 });
 
 app.get("/compras/:id", function (req, res) {
-  let CompraID;
+  let compraID;
   let id = req.params.id
 
   compras.forEach(function (compra) {
     if (compra.id == id) {
-      CompraID = compra
+      compraID = compra
     }
   })
 
-  if (CompraID) {
-    res.status(200).send({ "compra": CompraID });
+  if (compraID) {
+    res.status(200).send({ "compra": compraID });
   }
   else {
     res.status(400).send({ "mensaje": "compra no encontrada" });
@@ -149,7 +149,7 @@ app.put("/compras/:id", function (req, res) {
 });
 /* 
  
-    let compraEncontrada = getCompraID(compras, req.params.id)
+    let compraEncontrada = getcompraID(compras, req.params.id)
     console.log(compraEncontrada)
     if (compraEncontrada) {
      
@@ -194,7 +194,7 @@ app.get("/*", function (req, res) {
 /* function BusarID(id){
  compras.forEach(function (compra){
   if (compra.id == id){
-    return CompraID = compra
+    return compraID = compra
 }
 })
  
@@ -207,7 +207,7 @@ function getNextID() {
 
 
 
-function getCompraID(array, id) {
+function getcompraID(array, id) {
   //BUSCAR  EL ID ;
   console.log(array)
 
@@ -230,13 +230,13 @@ app.get("/compras", function (req, res) {
 });
 
 app.get("/compras/:id", function (req, res) {
- // let CompraID;
+ // let compraID;
   let id = req.params.id;
- const CompraID = compras.find(function (compra) {
+ const compraID = compras.find(function (compra) {
 return compra.id == id});
  
-  if (CompraID) {
-    res.status(200).send({ "compra": CompraID });
+  if (compraID) {
+    res.status(200).send({ "compra": compraID });
   }
   else {
     res.status(400).send({ "mensaje": "compra no encontrada" });
